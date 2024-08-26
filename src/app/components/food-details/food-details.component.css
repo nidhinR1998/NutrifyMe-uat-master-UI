@@ -1,0 +1,335 @@
+.food-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-image: url('/assets/title-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.food-input-card, .nutrition-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  animation: slideUp 0.8s ease-in-out; /* Updated animation */
+}
+
+h2, h3 {
+  color: #4285f4;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  z-index: 10;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Additional CSS for labels */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+}
+
+label[data-nutrition="protein"] {
+  background-color: #FF6384;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="fat"] {
+  background-color: #36A2EB;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="carbohydrates"] {
+  background-color: #FFCE56;
+  color: black;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="fiber"] {
+  background-color: #4BC0C0;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="sugar"] {
+  background-color: #9966FF;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="salt"] {
+  background-color: #FF9F40;
+  color: black;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="calories"] {
+  background-color: #FF5733;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="cholesterol"] {
+  background-color: #C70039;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="calcium"] {
+  background-color: #900C3F;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="iron"] {
+  background-color: #581845;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="potassium"] {
+  background-color: #DAF7A6;
+  color: black;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="vitaminA"] {
+  background-color: #FFC300;
+  color: black;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="vitaminC"] {
+  background-color: #FF5733;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="vitaminD"] {
+  background-color: #C70039;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="vitaminE"] {
+  background-color: #900C3F;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+label[data-nutrition="vitaminK"] {
+  background-color: #581845;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  z-index: 10;
+}
+
+input:focus, select:focus {
+  border-color: #4285f4;
+  box-shadow: 0 0 0 1px #4285f4;
+  outline: none;
+}
+
+.btn-analyze-food {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-analyze-food:hover {
+  background-color: #357ae8;
+  transform: scale(1.05);
+}
+
+.nutrition-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.nutrition-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.nutrition-graph {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  margin-bottom: 20px;
+  z-index: 10;
+}
+
+.nutrition-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 1rem;
+  z-index: 10;
+  perspective: 1000px; /* Added perspective for 3D effect */
+}
+
+.nutrition-table td, .nutrition-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-weight: bold; /* Made text bold */
+  transition: transform 0.3s ease-in-out; /* Added smooth animation */
+}
+
+.nutrition-table tr {
+  transition: transform 0.3s ease-in-out; /* Added transition for row hover */
+}
+
+.nutrition-table tr:hover {
+  transform: translateZ(20px); /* Added 3D hover effect */
+}
+
+.nutrition-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.nutrition-table th {
+  background-color: #4285f4;
+  color: white;
+}
+
+.nutrition-table td:nth-child(2) {
+  background-color: #FF6384; /* Color for Protein */
+}
+
+.nutrition-table td:nth-child(4) {
+  background-color: #36A2EB; /* Color for Fat */
+}
+
+.nutrition-table td:nth-child(6) {
+  background-color: #FFCE56; /* Color for Carbohydrates */
+}
+
+.nutrition-table td:nth-child(8) {
+  background-color: #4BC0C0; /* Color for Fiber */
+}
+
+.nutrition-table td:nth-child(10) {
+  background-color: #9966FF; /* Color for Sugar */
+}
+
+.nutrition-table td:nth-child(12) {
+  background-color: #FF9F40; /* Color for Salt */
+}
+
+.nutrition-table td:nth-child(14) {
+  background-color: #FF5733; /* Color for Calories */
+}
+
+.nutrition-table td:nth-child(16) {
+  background-color: #C70039; /* Color for Cholesterol */
+}
+
+.nutrition-table td:nth-child(18) {
+  background-color: #900C3F; /* Color for Calcium */
+}
+
+.nutrition-table td:nth-child(20) {
+  background-color: #581845; /* Color for Iron */
+}
+
+.nutrition-table td:nth-child(22) {
+  background-color: #DAF7A6; /* Color for Potassium */
+}
+
+.nutrition-table td:nth-child(24) {
+  background-color: #FFC300; /* Color for Vitamin A */
+}
+
+.nutrition-table td:nth-child(26) {
+  background-color: #FF5733; /* Color for Vitamin C */
+}
+
+.nutrition-table td:nth-child(28) {
+  background-color: #C70039; /* Color for Vitamin D */
+}
+
+.nutrition-table td:nth-child(30) {
+  background-color: #900C3F; /* Color for Vitamin E */
+}
+
+.nutrition-table td:nth-child(32) {
+  background-color: #581845; /* Color for Vitamin K */
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nutrition-content {
+    flex-direction: column;
+  }
+}

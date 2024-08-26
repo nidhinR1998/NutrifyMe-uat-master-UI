@@ -1,0 +1,56 @@
+<div class="food-details-container">
+  <div class="food-input-card">
+    <h2>Analyze Your Food</h2>
+    <form (ngSubmit)="onAnalyzeFood()">
+      <div class="form-group">
+        <label for="foodname">Food Item</label>
+        <input id="foodname" name="foodname" [(ngModel)]="foodItem.foodname" type="text" placeholder="Enter food name" required>
+      </div>
+      <div class="form-group">
+        <label for="type">Food Type</label>
+        <select id="type" name="type" [(ngModel)]="foodItem.type" required>
+          <option value="fruit">Fruits</option>
+          <option value="veg">Vegetarian</option>
+          <option value="non-veg">Non-Vegetarian</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-analyze-food" [disabled]="loading">Analyze Food</button>
+    </form>
+    <div *ngIf="loading" class="loading-indicator">Analyzing...</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+
+  <div *ngIf="nutrition" class="nutrition-card">
+    <h3>Nutrition Facts</h3>
+    <div class="nutrition-content">
+      <div class="nutrition-graph">
+        <canvas #chartCanvas></canvas>
+      </div>
+      <table class="nutrition-table">
+        <tbody>
+          <tr><td><label data-nutrition="protein">Protein:</label></td><td style="background-color: #FF6384;">{{ nutrition.protein }} g</td></tr>
+          <tr><td><label data-nutrition="fat">Fat:</label></td><td style="background-color: #36A2EB;">{{ nutrition.fat }} g</td></tr>
+          <tr><td><label data-nutrition="carbohydrates">Carbohydrates:</label></td><td style="background-color: #FFCE56;">{{ nutrition.carbohydrates }} g</td></tr>
+          <tr><td><label data-nutrition="fiber">Fiber:</label></td><td style="background-color: #4BC0C0;">{{ nutrition.fiber }} g</td></tr>
+          <tr><td><label data-nutrition="sugar">Sugar:</label></td><td style="background-color: #9966FF;">{{ nutrition.sugar }} g</td></tr>
+          <tr><td><label data-nutrition="salt">Salt:</label></td><td style="background-color: #FF9F40;">{{ nutrition.salt }} g</td></tr>
+          <tr><td><label data-nutrition="calories">Calories:</label></td><td style="background-color: #FF5733;">{{ nutrition.calories }} kcal</td></tr>
+          <tr><td><label data-nutrition="cholesterol">Cholesterol:</label></td><td style="background-color: #C70039;">{{ nutrition.cholesterol }} mg</td></tr>
+          <tr><td><label data-nutrition="calcium">Calcium:</label></td><td style="background-color: #900C3F;">{{ nutrition.calcium }} mg</td></tr>
+          <tr><td><label data-nutrition="iron">Iron:</label></td><td style="background-color: #581845;">{{ nutrition.iron }} mg</td></tr>
+          <tr><td><label data-nutrition="potassium">Potassium:</label></td><td style="background-color: #DAF7A6;">{{ nutrition.potassium }} mg</td></tr>
+          <tr><td><label data-nutrition="vitaminA">Vitamin A:</label></td><td style="background-color: #FFC300;">{{ nutrition.vitaminA }} IU</td></tr>
+          <tr><td><label data-nutrition="vitaminC">Vitamin C:</label></td><td style="background-color: #FF5733;">{{ nutrition.vitaminC }} mg</td></tr>
+          <tr><td><label data-nutrition="vitaminD">Vitamin D:</label></td><td style="background-color: #C70039;">{{ nutrition.vitaminD }} IU</td></tr>
+          <tr><td><label data-nutrition="vitaminE">Vitamin E:</label></td><td style="background-color: #900C3F;">{{ nutrition.vitaminE }} mg</td></tr>
+          <tr><td><label data-nutrition="vitaminK">Vitamin K:</label></td><td style="background-color: #581845;">{{ nutrition.vitaminK }} mcg</td></tr>
+          <tr><td>Serving Size:</td><td>{{ nutrition.servingSize }} {{ nutrition.servingUnit }}</td></tr>
+          <tr><td>Servings per Container:</td><td>{{ nutrition.servingsPerContainer }}</td></tr>
+          <tr><td>Allergens:</td><td>{{ nutrition.allergens }}</td></tr>
+          <tr><td>Notes:</td><td>{{ nutrition.notes }}</td></tr>
+          <tr><td>Recommendations:</td><td>{{ nutrition.recommendations }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+/* Basic styling for the navigation bar */
+nav {
+    background-color: #333; /* Dark background color */
+    padding: 10px 20px; /* Padding around the navigation bar */
+    display: flex;
+    justify-content: center; /* Center-aligns the navigation items */
+    border-bottom: 2px solid #444; /* Adds a subtle bottom border */
+  }
+  
+  nav a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Removes underline from links */
+    margin: 0 15px; /* Horizontal spacing between links */
+    font-size: 16px; /* Font size */
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for color and transformation */
+  }
+  
+  nav a:hover {
+    color: #ffeb3b; /* Yellow color on hover */
+    transform: scale(1.1); /* Slightly scales up the link */
+  }
+  
+  /* Style for the active link */
+  nav a.active {
+    font-weight: bold; /* Bold font for active link */
+    border-bottom: 2px solid #ffeb3b; /* Yellow underline for active link */
+  }
+  
+  router-outlet {
+    margin-top: 20px; /* Space between navigation bar and router outlet */
+  }
+  nav a.hidden {
+    display: none;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-bottom: 50px; /* Ensure there's space for the footer */
+  }

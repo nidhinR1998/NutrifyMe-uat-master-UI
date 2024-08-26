@@ -1,0 +1,86 @@
+<!-- <nav>
+  <a routerLink="/home">Home</a>
+  <a routerLink="/food-details">Food Details</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Sign Up</a>
+  <a routerLink="/forgot-password">Forgot Password?</a>
+  <a routerLink="/login">Logout</a>
+</nav>
+<router-outlet></router-outlet> -->
+
+
+
+<nav>
+  <a routerLink="/home" routerLinkActive="active" [ngClass]="{'hidden': !isAuthenticated}">Home</a>
+  <a routerLink="/food-details" routerLinkActive="active" [ngClass]="{'hidden': !isAuthenticated}">Food Details</a>
+  <!-- <a routerLink="/login" routerLinkActive="active" *ngIf="!isAuthenticated">Login</a> -->
+  <!-- <a routerLink="/register" routerLinkActive="active" *ngIf="!isAuthenticated">Sign Up</a> -->
+  <!-- <a routerLink="/forgot-password" routerLinkActive="active" *ngIf="!isAuthenticated">Forgot Password?</a> -->
+  <a (click)="logout()" *ngIf="isAuthenticated">Logout</a>
+</nav>
+<router-outlet></router-outlet>
+<app-footer></app-footer> 
+
+
+
+
+
+
+<!-- <nav>
+  <a
+    routerLink="/home"
+    routerLinkActive="active"
+    [@linkAnimation]="isHovered ? 'hover' : 'default'"
+    (mouseover)="isHovered = true"
+    (mouseleave)="isHovered = false"
+  >
+    Home
+  </a>
+  <a
+    routerLink="/food-details"
+    routerLinkActive="active"
+    [@linkAnimation]="isHovered ? 'hover' : 'default'"
+    (mouseover)="isHovered = true"
+    (mouseleave)="isHovered = false"
+  >
+    Food Details
+  </a>
+  <a
+    routerLink="/login"
+    routerLinkActive="active"
+    [@linkAnimation]="isHovered ? 'hover' : 'default'"
+    (mouseover)="isHovered = true"
+    (mouseleave)="isHovered = false"
+  >
+    Login
+  </a>
+  <a
+    routerLink="/register"
+    routerLinkActive="active"
+    [@linkAnimation]="isHovered ? 'hover' : 'default'"
+    (mouseover)="isHovered = true"
+    (mouseleave)="isHovered = false"
+  >
+    Sign Up
+  </a>
+  <a
+    routerLink="/forgot-password"
+    routerLinkActive="active"
+    [@linkAnimation]="isHovered ? 'hover' : 'default'"
+    (mouseover)="isHovered = true"
+    (mouseleave)="isHovered = false"
+  >
+    Forgot Password?
+  </a>
+  <a
+    routerLink="/logout"
+    routerLinkActive="active"
+    [@linkAnimation]="isHovered ? 'hover' : 'default'"
+    (mouseover)="isHovered = true"
+    (mouseleave)="isHovered = false"
+  >
+    Logout
+  </a>
+</nav>
+<router-outlet></router-outlet> -->
+
